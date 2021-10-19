@@ -1,5 +1,5 @@
 {
-  "name": "monorepo-template",
+  "name": "monorepo-template-package",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -26,10 +26,6 @@
     "typescript": "^4.4.3"
   },
   "workspaces": [
-    "services/*",
     "packages/*"
-  ],
-  "dependencies": {
-    "web": "file:services/web"
-  }
+  ]
 }

@@ -1,4 +1,4 @@
-Monorepo starter template
+Monorepo starter template: version for creating packages
 
 - npm workspaces
 - lerna
@@ -14,5 +14,3 @@ Workspace package folders:
 
 - packages
   - monorepo-tsconfig: shared typescript tsconfig.json
-- services
-  - web: example next.js app

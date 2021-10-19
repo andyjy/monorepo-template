@@ -1,9 +1,0 @@
-{
-  "extends": "monorepo-tsconfig/tsconfig.json",
-  // prettier-ignore
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx"
-  ]
-}
