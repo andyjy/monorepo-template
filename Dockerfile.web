@@ -1,0 +1,59 @@
+# Dockerfile to build the web package (services/web)
+# Use the repo root as build context (to pull in all linked packages)
+# > docker build -t web -f Dockerfile.web .
+
+# Install dependencies only when needed
+FROM node:alpine AS build-dependencies
+# Check https://github.com/nodejs/docker-node/tree/b4117f9333da4138b03a546ec926ef50a31506c3#nodealpine
+# to understand why libc6-compat might be needed.
+RUN apk add --no-cache libc6-compat
+WORKDIR /app
+COPY package.json package-lock.json ./
+COPY services/web/package*.json ./services/web/
+COPY packages/ ./packages/
+# npm ci is equivalent of npm install to use in automated environments
+# for a fast, clean build with no existing node_modules folder
+# using the exact dependency versions frozen in package-lock.json
+RUN npm ci
+
+
+# Development image
+FROM node:alpine AS dev
+ENV NEXT_TELEMETRY_DISABLED 1
+RUN addgroup -g 1001 -S nodejs && adduser -S nextjs -u 1001
+WORKDIR /app
+COPY --from=build-dependencies /app ./
+COPY services/web/ ./services/web/
+RUN chown -R nextjs:nodejs services/web/.next/
+USER nextjs
+EXPOSE 3000
+CMD ["npm", "run", "dev", "--workspace=services/web"]
+
+
+# Rebuild the source code only when needed
+FROM build-dependencies AS build
+WORKDIR /app
+COPY . .
+RUN npm run build && npm install --production --ignore-scripts --prefer-offline
+
+
+# Production image
+FROM node:alpine AS production
+ENV NODE_ENV production
+ENV NEXT_TELEMETRY_DISABLED 1
+RUN addgroup -g 1001 -S nodejs && adduser -S nextjs -u 1001
+WORKDIR /app
+COPY --from=build /app/node_modules ./node_modules
+COPY --from=build /app/package*.json ./
+WORKDIR /app/services/web
+COPY --from=build /app/services/web/node_modules ./node_modules
+COPY --from=build /app/services/web/package.json ./package.json
+COPY --from=build /app/services/web/next.config.js ./
+COPY --from=build /app/services/web/public ./public
+COPY --from=build --chown=nextjs:nodejs /app/services/web/.next ./.next
+
+USER nextjs
+EXPOSE 3000
+WORKDIR /app
+
+CMD ["npm", "run", "start", "--workspace=services/web"]
