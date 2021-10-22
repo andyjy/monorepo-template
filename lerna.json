@@ -3,11 +3,12 @@
   "version": "0.1.0",
   "command": {
     "version": {
-      "allowBranch": ["main", "canary"],
+      "allowBranch": ["main"],
+      "changelogPreset": "conventional-changelog-emojionalcommits",
       "conventionalCommits": true,
       "createRelease": "github",
       "exact": true,
-      "message": "release %s"
+      "message": "%s"
     }
   }
 }
