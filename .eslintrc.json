@@ -1,3 +1,22 @@
 {
-  "extends": ["next/core-web-vitals", "prettier"]
+  // We're using ESLint for linting:
+  //  - JavaScript (as designed)
+  //  - TypeScript (via typescript-eslint <- next/recommended <- next/core-web-vitals)
+
+  // n.b. comments are allowed in .eslintrc.json ;)
+
+  // order matters - prettier goes last
+  // prettier-ignore
+  "extends": [
+    "eslint:recommended",
+    "next/core-web-vitals",
+    "prettier"
+  ],
+
+  "rules": {
+    // uncomment to suppress "pages directory not found" error if no next.js project in repo
+    // "@next/next/no-html-link-for-pages": ["error", "./"]
+  },
+
+  "ignorePatterns": ["**/*.d.ts"]
 }
