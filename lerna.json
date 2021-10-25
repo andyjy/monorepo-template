@@ -6,7 +6,6 @@
       "allowBranch": ["main"],
       "changelogPreset": "conventional-changelog-emojionalcommits",
       "conventionalCommits": true,
-      "createRelease": "github",
       "exact": true,
       "message": "%s"
     }
