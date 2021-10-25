@@ -1,5 +1,5 @@
 {
-  "extends": "monorepo-tsconfig/tsconfig.json",
+  "extends": "@andyjy/monorepo-utils/tsconfig.json",
   // prettier-ignore
   "include": [
     "next-env.d.ts",
