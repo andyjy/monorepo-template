@@ -3,7 +3,7 @@ module.exports = {
 
   // - run type-check on typescript
   "**/*.ts?(x)": (filenames) =>
-    `bin/tsc-lint-staged ${filenames
+    `npx monorepo-utils/tsc-lint-staged ${filenames
       .map((file) => "'" + file.replace("'", "?") + "'")
       .join(" ")}`,
 
