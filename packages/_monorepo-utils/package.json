@@ -3,5 +3,8 @@
   "version": "0.1.0",
   "description": "Misc utils for working with monorepo dev environments",
   "author": "Andy Young <npm@apexa.co.uk> https://github.com/andyjy",
-  "license": "ISC"
+  "license": "ISC",
+  "bin": {
+    "tsc-lint-staged": "bin/tsc-lint-staged"
+  }
 }
