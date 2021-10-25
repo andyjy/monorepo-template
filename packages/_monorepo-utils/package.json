@@ -1,5 +1,7 @@
 {
   "name": "@andyjy/monorepo-utils",
   "version": "0.1.0",
-  "private": true
+  "description": "Misc utils for working with monorepo dev environments",
+  "author": "Andy Young <npm@apexa.co.uk> https://github.com/andyjy",
+  "license": "ISC"
 }

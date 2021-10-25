@@ -40,5 +40,8 @@
   ],
   "dependencies": {
     "web": "file:services/web"
+  },
+  "engines": {
+    "node": ">=14.0.0"
   }
 }
