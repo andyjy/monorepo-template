@@ -97,11 +97,11 @@ module.exports = {
     "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy",
 
     // Handle CSS imports (without CSS modules)
-    "^.+\\.(css|sass|scss)$": "<rootDir>/__mocks__/styleMock.js",
+    "^.+\\.(css|sass|scss)$": "@andyjy/monorepo-utils/styleMock.js",
 
     /* Handle image imports
       https://jestjs.io/docs/webpack#handling-static-assets */
-    "^.+\\.(jpg|jpeg|png|gif|webp|svg)$": "<rootDir>/__mocks__/fileMock.js",
+    "^.+\\.(jpg|jpeg|png|gif|webp|svg)$": "@andyjy/monorepo-utils/fileMock.js",
   },
 
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
