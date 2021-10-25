@@ -5,6 +5,7 @@
   "author": "Andy Young <npm@apexa.co.uk> https://github.com/andyjy",
   "license": "ISC",
   "bin": {
+    "merge-main-to-canary": "bin/merge-main-to-canary",
     "tsc-lint-staged": "bin/tsc-lint-staged"
   }
 }
