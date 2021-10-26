@@ -12,5 +12,8 @@
   "private": false,
   "publishConfig": {
     "access": "public"
+  },
+  "dependencies": {
+    "@andyjy/eslint-config-monorepo-utils": "0.1.1-canary.3"
   }
 }
