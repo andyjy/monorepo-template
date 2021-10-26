@@ -1,12 +1,10 @@
-{
-  // We're using ESLint for linting:
-  //  - JavaScript (as designed)
-  //  - TypeScript (via typescript-eslint <- eslint-config-next <- next/core-web-vitals)
+// We're using ESLint for linting:
+//  - JavaScript (as designed)
+//  - TypeScript (via typescript-eslint <- eslint-config-next <- next/core-web-vitals)
 
-  // n.b. comments are allowed in .eslintrc.json ;)
-
+module.exports = {
   // order matters - prettier goes last
-  "extends": [
+  extends: [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:node/recommended",
@@ -14,10 +12,10 @@
     "plugin:jest/recommended",
     "plugin:jest/style",
     "next/core-web-vitals",
-    "prettier"
+    "prettier",
   ],
 
-  "rules": {
+  rules: {
     // uncomment to suppress "pages directory not found" error if no next.js project in repo
     // "@next/next/no-html-link-for-pages": ["error", "./"]
 
@@ -35,8 +33,8 @@
     "node/no-unsupported-features/es-syntax": [
       "error",
       {
-        "ignores": ["modules", "bigint", "dynamicImport"]
-      }
+        ignores: ["modules", "bigint", "dynamicImport"],
+      },
     ],
 
     // eslint-plugin-import/recommended analysis/correctness
@@ -53,12 +51,12 @@
 
     // jest
     // override for jest/style
-    "jest/no-alias-methods": "off"
+    "jest/no-alias-methods": "off",
   },
 
-  "parserOptions": {
-    "ecmaVersion": 2020
+  parserOptions: {
+    ecmaVersion: 2020,
   },
 
-  "ignorePatterns": ["**/*.d.ts", "**/node_modules", "**/dist"]
-}
+  ignorePatterns: ["**/*.d.ts", "**/node_modules", "**/dist"],
+};
