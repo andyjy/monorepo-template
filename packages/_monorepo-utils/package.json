@@ -9,5 +9,6 @@
     "next-lint-staged": "bin/next-lint-staged",
     "tsc-lint-staged": "bin/tsc-lint-staged"
   },
-  "public": true
+  "private": false,
+  "gitHead": "862a9eb6c0d2451442b5b1e1fc47aa0426658c2a"
 }

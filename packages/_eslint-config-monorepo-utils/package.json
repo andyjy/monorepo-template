@@ -4,5 +4,6 @@
   "description": "Base ESLint config for @andyjy/monorepo-utils",
   "author": "Andy Young <npm@apexa.co.uk> https://github.com/andyjy",
   "license": "ISC",
-  "public": true
+  "private": false,
+  "gitHead": "862a9eb6c0d2451442b5b1e1fc47aa0426658c2a"
 }
