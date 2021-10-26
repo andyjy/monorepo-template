@@ -19,6 +19,7 @@
   },
   "devDependencies": {
     "@andyjy/monorepo-utils": "file:packages/_monorepo-utils",
+    "@andyjy/eslint-config-monorepo-utils": "file:packages/_eslint-config-monorepo-utils",
     "@jest/globals": "^27.3.1",
     "@types/jest": "^27.0.2",
     "@types/node": "^16.10.3",

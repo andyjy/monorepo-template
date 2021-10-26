@@ -17,7 +17,7 @@ module.exports = {
 
   rules: {
     // uncomment to suppress "pages directory not found" error if no next.js project in repo
-    // "@next/next/no-html-link-for-pages": ["error", "./"]
+    //"@next/next/no-html-link-for-pages": ["error", "./"],
 
     // override node/recommended rules
     // we use instead eslint-plugin-import for validating module imports
