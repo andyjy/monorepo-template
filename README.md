@@ -9,8 +9,9 @@ Monorepo starter template: version for creating packages
 - editorconfig
 - .vscode
 - typescript
+- jest
 
 Workspace package folders:
 
 - packages
-  - monorepo-tsconfig: shared typescript tsconfig.json
+  - monorepo-utils: base config files & util scripts
