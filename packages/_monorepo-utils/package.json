@@ -8,5 +8,6 @@
     "merge-main-to-canary": "bin/merge-main-to-canary",
     "next-lint-staged": "bin/next-lint-staged",
     "tsc-lint-staged": "bin/tsc-lint-staged"
-  }
+  },
+  "public": true
 }
