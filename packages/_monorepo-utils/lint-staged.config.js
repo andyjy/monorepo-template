@@ -9,13 +9,9 @@ module.exports = {
 
   // - lint/fix typescript/javascript (with eslint)
   "**/*.(ts|js)?(x)": (filenames) => [
-    // [hack]: running `next lint` from root level even though root isn't a nextjs project
-    //         => we need to temporarily fake a /pages directory to avoid bugout
-    "touch pages",
-    `npx next lint --fix --file ${filenames
+    `npx next-lint-staged ${filenames
       .map((file) => "'" + file.replace("'", "?") + "'")
-      .join(" --file ")}`,
-    "bash -c '[ -f pages ] && ([ -s pages ] || rm pages )'",
+      .join(" ")}`,
   ],
 
   // - format everything with prettier (excluding .prettierignore matches)

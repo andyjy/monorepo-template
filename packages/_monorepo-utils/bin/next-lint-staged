@@ -1,0 +1,56 @@
+#!/usr/bin/env node
+
+/**
+ * monorepo utility script to lint staged changes
+ */
+
+/* eslint @typescript-eslint/no-var-requires: "off" */
+
+//"touch pages",
+//"bash -c '[ -f pages ] && ([ -s pages ] || rm pages )'",
+
+const { execSync } = require("child_process");
+const fs = require("fs");
+const path = require("path");
+
+if (process.argv.length < 3) {
+  console.log('Called with no files to process');
+  return;
+}
+
+// hack: running `next lint` from root level even though root isn't a nextjs project
+//   => we need to temporarily fake a /pages directory to avoid bugout
+const tempPagesDir = path.join(process.cwd(), "pages");
+try {
+  fs.mkdirSync(tempPagesDir);
+} catch (e) {
+  if (e.code != 'EEXIST') {
+    console.error(e.message);
+  }
+}
+
+try {
+  let cmd = `next lint --fix --file ${process.argv
+    .splice(2)
+    .map((file) => "'" + file + "'")
+    .join(" --file ")}`;
+
+  let result = execSync(cmd).toString().trim();
+  if (result) console.log(result);
+} catch (e) {
+  let result = e.stdout.toString().trim();
+  if (result) console.log(result);
+  result = e.stderr.toString().trim();
+  if (result) console.log(result);
+
+  process.exitCode = e.status;
+}
+
+// hack: clean up
+try {
+  fs.rmdirSync(tempPagesDir);
+} catch (e) {
+  if (e.code != 'ENOTEMPTY') {
+    console.error(e.message);
+  }
+}
