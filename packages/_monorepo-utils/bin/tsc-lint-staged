@@ -11,6 +11,8 @@
 // to catch any type errors in changed files themselves without having to wait for
 // a comprehensive typecheck on each commit
 
+/* eslint @typescript-eslint/no-var-requires: "off" */
+
 // excluded in .gitignore
 const tsconfigTemp = ".tsconfig-lint.json";
 
@@ -18,12 +20,12 @@ const { execSync } = require("child_process");
 const fs = require("fs");
 const path = require("path");
 
-if (process.cwd() == path.resolve(__dirname, "..")) {
-  // running in root - fan out to workspaces
-  let cmd = `npm exec --workspaces -c '${__filename} '${process.argv
+if (process.cwd() == path.resolve(__dirname, "../../../")) {
+  console.log("running in root - fan out to workspaces");
+  let cmd = `npm exec --workspaces -c '${__filename} ${process.argv
     .splice(2)
-    .map((file) => "\"'\"'" + file + "'\"'\"'")
-    .join(" '")}'`;
+    .map((file) => "'\"'\"'" + file + "'\"'\"'")
+    .join(" ")}'`;
 
   try {
     let result = execSync(cmd).toString().trim();
@@ -33,15 +35,15 @@ if (process.cwd() == path.resolve(__dirname, "..")) {
     if (result) console.log(result);
     result = e.stderr.toString().trim();
     if (result) console.log(result);
-    process.exit(e.status);
-  }
 
-  process.exit(0);
+    process.exitCode = e.status;
+    return;
+  }
 } else {
   // running in workspace/package
   console.log(
     "Typecheck for changes in: " +
-      process.cwd().replace(path.resolve(__dirname, "..") + "/", "")
+      process.cwd().replace(path.resolve(__dirname, "../../../") + "/", "")
   );
   const filteredFiles = process.argv
     .slice(2)
@@ -49,7 +51,7 @@ if (process.cwd() == path.resolve(__dirname, "..")) {
 
   if (!filteredFiles.length) {
     console.log("..no typescript changes in this package");
-    process.exit(0);
+    return;
   }
 
   try {
@@ -81,8 +83,8 @@ if (process.cwd() == path.resolve(__dirname, "..")) {
     if (result) console.log(result);
     result = e.stderr.toString().trim();
     if (result) console.log(result);
-    process.exit(e.status);
-  }
 
-  process.exit(0);
+    process.exitCode = e.status;
+    return;
+  }
 }

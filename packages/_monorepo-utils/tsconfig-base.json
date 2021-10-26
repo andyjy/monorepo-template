@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    // prettier-ignore
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "declaration": true
+  },
+  // 3 levels up to get to repo root from node_modules/@andyjy/monorepo-utils
+  "exclude": [
+    "../../../**/.next",
+    "../../../**/node_modules",
+    "../../../**/dist"
+  ]
+}
