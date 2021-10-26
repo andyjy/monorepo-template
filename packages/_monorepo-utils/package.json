@@ -1,6 +1,6 @@
 {
   "name": "@andyjy/monorepo-utils",
-  "version": "0.1.1-canary.2",
+  "version": "0.1.1-canary.3",
   "description": "Misc utils for working with monorepo dev environments",
   "author": "Andy Young <npm@apexa.co.uk> https://github.com/andyjy",
   "license": "ISC",
