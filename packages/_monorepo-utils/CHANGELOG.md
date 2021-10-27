@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+### [0.1.1](https://github.com/andyjy/monorepo-template/compare/v0.1.1-canary.5...v0.1.1) (2021-10-27)
+
+**Note:** Version bump only for package @andyjy/monorepo-utils
+
 ### [0.1.1-canary.5](https://github.com/andyjy/monorepo-template/compare/v0.1.1-canary.4...v0.1.1-canary.5) (2021-10-27)
 
 ### Bug Fixes
