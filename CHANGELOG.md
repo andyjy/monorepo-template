@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+### [0.1.1-canary.5](https://github.com/andyjy/monorepo-template/compare/v0.1.1-canary.4...v0.1.1-canary.5) (2021-10-27)
+
+### Bug Fixes
+
+- jest config presets don't support typescript ([a1e1b8c](https://github.com/andyjy/monorepo-template/commit/a1e1b8ce33893361102a74c177bcac6e3d250da2))
+
 ### [0.1.1-canary.4](https://github.com/andyjy/monorepo-template/compare/v0.1.1-canary.3...v0.1.1-canary.4) (2021-10-26)
 
 **Note:** Version bump only for package monorepo-template-package
