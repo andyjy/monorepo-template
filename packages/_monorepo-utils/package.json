@@ -1,6 +1,6 @@
 {
   "name": "@andyjy/monorepo-utils",
-  "version": "0.1.2-canary.1",
+  "version": "0.1.2",
   "description": "Misc utils for working with monorepo dev environments",
   "author": "Andy Young <npm@apexa.co.uk> https://github.com/andyjy",
   "license": "ISC",
@@ -14,6 +14,6 @@
     "access": "public"
   },
   "dependencies": {
-    "@andyjy/eslint-config-monorepo-utils": "0.1.2-canary.1"
+    "@andyjy/eslint-config-monorepo-utils": "0.1.2"
   }
 }
