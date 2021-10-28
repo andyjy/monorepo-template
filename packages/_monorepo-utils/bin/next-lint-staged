@@ -6,15 +6,12 @@
 
 /* eslint @typescript-eslint/no-var-requires: "off" */
 
-//"touch pages",
-//"bash -c '[ -f pages ] && ([ -s pages ] || rm pages )'",
-
 const { execSync } = require("child_process");
 const fs = require("fs");
 const path = require("path");
 
 if (process.argv.length < 3) {
-  console.log('Called with no files to process');
+  console.log("Called with no files to process");
   return;
 }
 
@@ -24,7 +21,7 @@ const tempPagesDir = path.join(process.cwd(), "pages");
 try {
   fs.mkdirSync(tempPagesDir);
 } catch (e) {
-  if (e.code != 'EEXIST') {
+  if (e.code != "EEXIST") {
     console.error(e.message);
   }
 }
@@ -50,7 +47,7 @@ try {
 try {
   fs.rmdirSync(tempPagesDir);
 } catch (e) {
-  if (e.code != 'ENOTEMPTY') {
+  if (e.code != "ENOTEMPTY") {
     console.error(e.message);
   }
 }
