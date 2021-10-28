@@ -50,11 +50,11 @@ fs.renameSync(
 );
 
 try {
-  execSync("git init -b canary").toString());
-  execSync("git add .", {stdio: 'inherit'});
-  execSync("npm install", {stdio: 'inherit'});
-  execSync('git commit -m "initial commit :tada:"', {stdio: 'inherit'});
-  execSync("git branch main", {stdio: 'inherit'});
+  execSync("git init -b canary", { stdio: "inherit" });
+  execSync("git add .", { stdio: "inherit" });
+  execSync("npm install", { stdio: "inherit" });
+  execSync('git commit -m "initial commit :tada:"', { stdio: "inherit" });
+  execSync("git branch main", { stdio: "inherit" });
 } catch (e) {
   console.error(e.message);
   return -1;
