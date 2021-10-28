@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+### [0.1.4-canary.1](https://github.com/andyjy/monorepo-template/compare/v0.1.4-canary.0...v0.1.4-canary.1) (2021-10-28)
+
+### Features
+
+- `monorepo-eject` script for starting new project ([b394930](https://github.com/andyjy/monorepo-template/commit/b39493009acee45fd9a7c7231882bbaf3c77859d))
+
 ### [0.1.4-canary.0](https://github.com/andyjy/monorepo-template/compare/v0.1.3...v0.1.4-canary.0) (2021-10-28)
 
 **Note:** Version bump only for package monorepo-template-package

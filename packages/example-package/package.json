@@ -1,6 +1,6 @@
 {
   "name": "",
-  "version": "0.0.0",
+  "version": "0.1.4-canary.1",
   "description": "example typescript package",
   "author": "Andy Young <npm@apexa.co.uk> https://github.com/andyjy",
   "license": "ISC",
@@ -20,7 +20,6 @@
   },
   "bin": {},
   "files": [],
-  "dependencies": {},
   "engines": {
     "node": ">=14"
   }
