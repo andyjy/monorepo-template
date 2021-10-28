@@ -6,6 +6,7 @@
   "license": "ISC",
   "bin": {
     "merge-main-to-canary": "bin/merge-main-to-canary",
+    "monorepo-eject": "bin/monorepo-eject",
     "next-lint-staged": "bin/next-lint-staged",
     "tsc-lint-staged": "bin/tsc-lint-staged"
   },
