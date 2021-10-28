@@ -1,0 +1,27 @@
+{
+  "name": "",
+  "version": "0.0.0",
+  "description": "example typescript package",
+  "author": "Andy Young <npm@apexa.co.uk> https://github.com/andyjy",
+  "license": "ISC",
+  "keywords": [],
+  "scripts": {
+    "clean": "rimraf dist",
+    "lint": "eslint .",
+    "typecheck": "tsc --project tsconfig.json --pretty --noEmit",
+    "test": "NODE_OPTIONS=--experimental-vm-modules jest --config ../../jest.config.js",
+    "build": "tsc --project ./tsconfig.build.json"
+  },
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/user/example.git",
+    "directory": "packages/example-package"
+  },
+  "bin": {},
+  "files": [],
+  "dependencies": {},
+  "engines": {
+    "node": ">=14"
+  }
+}
