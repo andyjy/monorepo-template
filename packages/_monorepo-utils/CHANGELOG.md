@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+### [0.1.4-canary.6](https://github.com/andyjy/monorepo-template/compare/v0.1.4-canary.5...v0.1.4-canary.6) (2021-10-29)
+
+### Bug Fixes
+
+- `tsc-lint-staged` detect root correctly ([12cbc08](https://github.com/andyjy/monorepo-template/commit/12cbc08da11c3d3920e2a8faba5015837f2f901d))
+
 ### [0.1.4-canary.5](https://github.com/andyjy/monorepo-template/compare/v0.1.4-canary.4...v0.1.4-canary.5) (2021-10-29)
 
 ### Bug Fixes
