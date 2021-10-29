@@ -1,12 +1,11 @@
 {
   "packages": ["services/*", "packages/*"],
-  "version": "0.1.0",
+  "version": "0.1.4",
   "command": {
     "version": {
       "allowBranch": ["main"],
       "changelogPreset": "conventional-changelog-emojionalcommits",
       "conventionalCommits": true,
-      "createRelease": "github",
       "exact": true,
       "message": "%s"
     }

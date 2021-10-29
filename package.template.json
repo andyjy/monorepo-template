@@ -1,9 +1,8 @@
 {
-  "name": "monorepo-template",
+  "name": "",
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "monorepo-eject": "npm install && npx monorepo-eject",
     "prepare": "husky install",
     "clean": "lerna clean -y && npm install && npm run --workspaces clean --if-present",
     "lint": "npm run --workspaces lint --if-present",
@@ -20,8 +19,7 @@
     "version": "npm install --package-lock-only && git add package-lock.json"
   },
   "devDependencies": {
-    "@andyjy/monorepo-utils": "file:packages/_monorepo-utils",
-    "@andyjy/eslint-config-monorepo-utils": "file:packages/_eslint-config-monorepo-utils",
+    "@andyjy/monorepo-utils": "^0.1.4",
     "@jest/globals": "^27.3.1",
     "@types/jest": "^27.0.2",
     "@types/node": "^16.10.3",
@@ -37,23 +35,9 @@
     "typescript": "^4.4.3"
   },
   "workspaces": [
-    "services/*",
     "packages/*"
   ],
-  "dependencies": {
-    "web": "file:services/web"
-  },
   "engines": {
     "node": ">=14.0.0"
-  },
-  "prettier": {
-    "overrides": [
-      {
-        "files": "package*.json",
-        "options": {
-          "parser": "json-stringify"
-        }
-      }
-    ]
   }
 }

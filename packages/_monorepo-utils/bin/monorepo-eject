@@ -1,0 +1,65 @@
+#!/usr/bin/env node
+
+/**
+ * script to eject monorepo template into new repo
+ */
+
+/* eslint @typescript-eslint/no-var-requires: "off" */
+
+const { execSync } = require("child_process");
+const fs = require("fs");
+const path = require("path");
+const rimraf = require("rimraf");
+const exec = (cmd) => {
+  execSync(cmd, { stdio: "inherit" });
+};
+
+try {
+  // ensure working copy is clean
+  let result = execSync("git status --porcelain").toString().trim();
+  if (result > "") {
+    console.error("Current working copy is dirty");
+    return -1;
+  }
+
+  // basic test to avoid accidental use with destructive effect
+  /* eslint-disable security-node/detect-non-literal-require-calls */
+  const package_json = require(path.join(process.cwd(), "package.json"));
+  /* eslint-enable security-node/detect-non-literal-require-calls */
+  if (
+    package_json.name != "monorepo-template" ||
+    package_json.version != "0.0.0"
+  ) {
+    console.error(
+      "This doesn't look like our monorepo template (package.json reports '" +
+        package_json.name +
+        "@" +
+        package_json.version +
+        "')"
+    );
+    return -1;
+  }
+} catch (e) {
+  console.error(e.message);
+  return -1;
+}
+
+rimraf.sync(".git");
+rimraf.sync("packages/_*");
+
+fs.renameSync(
+  path.join(process.cwd(), "package.template.json"),
+  path.join(process.cwd(), "package.json")
+);
+fs.rmSync("package-lock.json");
+
+try {
+  exec("git init -b canary");
+  exec("npm install");
+  exec("git add .");
+  exec('git commit -m "initial commit :tada:"');
+  exec("git branch main");
+} catch (e) {
+  console.error(e.message);
+  return -1;
+}

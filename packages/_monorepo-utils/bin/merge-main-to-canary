@@ -1,0 +1,37 @@
+#!/usr/bin/env node
+
+/**
+ * merge branch main back into canary
+ * - called after releases on main to merge commits with release version
+ */
+
+/* eslint @typescript-eslint/no-var-requires: "off" */
+
+const { execSync } = require("child_process");
+const exec = (cmd) => {
+  execSync(cmd, { stdio: "inherit" });
+};
+
+// first check whether we have any commits on canary not merged to main
+let cleanCanary = false;
+try {
+  exec("git diff --quiet main..canary");
+  // returns successfully if no changes
+  cleanCanary = true;
+} catch (e) {
+  if (e.status != 1) {
+    console.error((e.stderr || e.message).toString());
+  }
+}
+
+try {
+  exec("git co canary");
+  exec("git pull --rebase");
+  exec("git merge main -m \"Merge branch 'main' into canary\"");
+
+  if (cleanCanary) {
+    execSync("git push");
+  }
+} catch (e) {
+  console.error((e.stderr || e.message).toString());
+}
