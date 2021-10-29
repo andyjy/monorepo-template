@@ -51,11 +51,12 @@ fs.renameSync(
   path.join(process.cwd(), "package.template.json"),
   path.join(process.cwd(), "package.json")
 );
+fs.rmSync("package-lock.json");
 
 try {
-  exec("git init -b canary", { stdio: "inherit" });
-  exec("git add .");
+  exec("git init -b canary");
   exec("npm install");
+  exec("git add .");
   exec('git commit -m "initial commit :tada:"');
   exec("git branch main");
 } catch (e) {
