@@ -1,14 +1,37 @@
-#!/bin/bash
-git diff --quiet HEAD..canary
-CLEAN_CANARY=$?
+#!/usr/bin/env node
 
-# exit on error
-set -e
+/**
+ * merge branch main back into canary
+ * - called after releases on main to merge commits with release version
+ */
 
-git co canary
-git pull --rebase
-git merge main -m "Merge branch 'main' into canary"
+/* eslint @typescript-eslint/no-var-requires: "off" */
 
-if [[ $CLEAN_CANARY -eq "0" ]]; then
-  git push
-fi
+const { execSync } = require("child_process");
+const exec = (cmd) => {
+  execSync(cmd, { stdio: "inherit" });
+};
+
+// first check whether we have any commits on canary not merged to main
+let cleanCanary = false;
+try {
+  exec("git diff --quiet main..canary");
+  // returns successfully if no changes
+  cleanCanary = true;
+} catch (e) {
+  if (e.status != 1) {
+    console.error(e.stderr.toString());
+  }
+}
+
+try {
+  exec("git co canary");
+  exec("git pull --rebase");
+  exec("git merge main -m \"Merge branch 'main' into canary\"");
+
+  if (cleanCanary) {
+    execSync("git push");
+  }
+} catch (e) {
+  console.error(e.stderr.toString());
+}

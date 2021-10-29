@@ -28,23 +28,22 @@ if (process.cwd() == path.resolve(__dirname, "../../../")) {
     .join(" ")}'`;
 
   try {
-    let result = execSync(cmd).toString().trim();
-    if (result) console.log(result);
+    execSync(cmd, { stdio: "inherit" });
   } catch (e) {
-    let result = e.stdout.toString().trim();
-    if (result) console.log(result);
-    result = e.stderr.toString().trim();
-    if (result) console.log(result);
-
+    console.error(e.stderr.toString());
     process.exitCode = e.status;
     return;
   }
 } else {
   // running in workspace/package
+
+  /* eslint-disable security-node/detect-crlf */
   console.log(
     "Typecheck for changes in: " +
       process.cwd().replace(path.resolve(__dirname, "../../../") + "/", "")
   );
+  /* eslint-enable security-node/detect-crlf */
+
   const filteredFiles = process.argv
     .slice(2)
     .filter((file) => file.indexOf(process.cwd() + "/") == 0);
@@ -73,17 +72,12 @@ if (process.cwd() == path.resolve(__dirname, "../../../")) {
     }`
     );
 
-    let result = execSync("tsc --pretty --noEmit --project " + tsconfigTemp)
-      .toString()
-      .trim();
-    if (result) console.log(result);
+    execSync("tsc --pretty --noEmit --project " + tsconfigTemp, {
+      stdio: "inherit",
+    });
     console.log("..typecheck succeeded");
   } catch (e) {
-    let result = e.stdout.toString().trim();
-    if (result) console.log(result);
-    result = e.stderr.toString().trim();
-    if (result) console.log(result);
-
+    console.error(e.stderr.toString());
     process.exitCode = e.status;
     return;
   }

@@ -9,6 +9,9 @@
 const { execSync } = require("child_process");
 const fs = require("fs");
 const path = require("path");
+const exec = (cmd) => {
+  execSync(cmd, { stdio: "inherit" });
+};
 
 if (process.argv.length < 3) {
   console.log("Called with no files to process");
@@ -27,19 +30,14 @@ try {
 }
 
 try {
-  let cmd = `next lint --fix --file ${process.argv
-    .splice(2)
-    .map((file) => "'" + file + "'")
-    .join(" --file ")}`;
-
-  let result = execSync(cmd).toString().trim();
-  if (result) console.log(result);
+  exec(
+    `next lint --fix --file ${process.argv
+      .splice(2)
+      .map((file) => "'" + file + "'")
+      .join(" --file ")}`
+  );
 } catch (e) {
-  let result = e.stdout.toString().trim();
-  if (result) console.log(result);
-  result = e.stderr.toString().trim();
-  if (result) console.log(result);
-
+  console.error(e.stderr.toString());
   process.exitCode = e.status;
 }
 
