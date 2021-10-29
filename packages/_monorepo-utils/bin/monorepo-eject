@@ -19,7 +19,7 @@ try {
   let result = execSync("git status --porcelain").toString().trim();
   if (result > "") {
     console.error("Current working copy is dirty");
-    //return -1;
+    return -1;
   }
 
   // basic test to avoid accidental use with destructive effect
