@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+### [0.1.4-canary.5](https://github.com/andyjy/monorepo-template/compare/v0.1.4-canary.4...v0.1.4-canary.5) (2021-10-29)
+
+### Bug Fixes
+
+- binfiles error handling ([351b47f](https://github.com/andyjy/monorepo-template/commit/351b47f599bab507e89613cf2c51c169333859d3))
+
 ### [0.1.4-canary.4](https://github.com/andyjy/monorepo-template/compare/v0.1.4-canary.3...v0.1.4-canary.4) (2021-10-29)
 
 ### Bug Fixes
