@@ -23,7 +23,13 @@ const exec = (cmd) => {
   execSync(cmd, { stdio: "inherit" });
 };
 
-if (process.cwd() == path.resolve(__dirname, "../../../")) {
+if (
+  // if we're running in a workspace then the working directory will not be a parent of this
+  // included module bin script
+  __dirname.includes(process.cwd()) &&
+  // ..unless we're running in the workspace for this package in development(!)
+  !process.cwd().includes("/_monorepo-utils") //
+) {
   console.log("running in root - fan out to workspaces");
   try {
     exec(
