@@ -40,5 +40,15 @@
   ],
   "engines": {
     "node": ">=14.0.0"
+  },
+  "prettier": {
+    "overrides": [
+      {
+        "files": "package*.json",
+        "options": {
+          "parser": "json-stringify"
+        }
+      }
+    ]
   }
 }
