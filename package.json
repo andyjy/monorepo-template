@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "monorepo-eject": "npm install && npx monorepo-eject",
     "prepare": "husky install",
     "clean": "lerna clean -y && npm install && npm run --workspaces clean --if-present",
     "lint": "npm run --workspaces lint --if-present",

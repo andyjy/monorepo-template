@@ -11,10 +11,9 @@ Template versions in different branches:
 To create a new monorepo using this template:
 
 ```
-git clone git@github.com:andyjy/monorepo-template.git my-new-monorepo
+git clone -b main git@github.com:andyjy/monorepo-template.git my-new-monorepo
 cd my-new-monorepo
-npm install
-npx monorepo-eject
+npm run monorepo-eject
 ```
 
 .. then start your project, commit, add git remote and push
