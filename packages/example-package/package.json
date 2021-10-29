@@ -2,7 +2,8 @@
   "name": "",
   "version": "0.1.4-canary.1",
   "description": "example typescript package",
-  "author": "Andy Young <npm@apexa.co.uk> https://github.com/andyjy",
+  "private": true,
+  "author": "Author <email@domain> https://github.com/username",
   "license": "ISC",
   "keywords": [],
   "scripts": {
@@ -15,7 +16,7 @@
   "type": "module",
   "repository": {
     "type": "git",
-    "url": "https://github.com/user/example.git",
+    "url": "https://github.com/username/example.git",
     "directory": "packages/example-package"
   },
   "bin": {},
