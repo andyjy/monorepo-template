@@ -19,18 +19,21 @@ const tsconfigTemp = ".tsconfig-lint.json";
 const { execSync } = require("child_process");
 const fs = require("fs");
 const path = require("path");
+const exec = (cmd) => {
+  execSync(cmd, { stdio: "inherit" });
+};
 
 if (process.cwd() == path.resolve(__dirname, "../../../")) {
   console.log("running in root - fan out to workspaces");
-  let cmd = `npm exec --workspaces -c '${__filename} ${process.argv
-    .splice(2)
-    .map((file) => "'\"'\"'" + file + "'\"'\"'")
-    .join(" ")}'`;
-
   try {
-    execSync(cmd, { stdio: "inherit" });
+    exec(
+      `npm exec --workspaces -c '${__filename} ${process.argv
+        .splice(2)
+        .map((file) => "'\"'\"'" + file + "'\"'\"'")
+        .join(" ")}'`
+    );
   } catch (e) {
-    console.error(e.stderr.toString());
+    console.error((e.stderr || e.message).toString());
     process.exitCode = e.status;
     return;
   }
@@ -72,12 +75,10 @@ if (process.cwd() == path.resolve(__dirname, "../../../")) {
     }`
     );
 
-    execSync("tsc --pretty --noEmit --project " + tsconfigTemp, {
-      stdio: "inherit",
-    });
+    exec("tsc --pretty --noEmit --project " + tsconfigTemp);
     console.log("..typecheck succeeded");
   } catch (e) {
-    console.error(e.stderr.toString());
+    console.error((e.stderr || e.message).toString());
     process.exitCode = e.status;
     return;
   }

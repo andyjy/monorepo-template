@@ -20,7 +20,7 @@ try {
   cleanCanary = true;
 } catch (e) {
   if (e.status != 1) {
-    console.error(e.stderr.toString());
+    console.error((e.stderr || e.message).toString());
   }
 }
 
@@ -33,5 +33,5 @@ try {
     execSync("git push");
   }
 } catch (e) {
-  console.error(e.stderr.toString());
+  console.error((e.stderr || e.message).toString());
 }

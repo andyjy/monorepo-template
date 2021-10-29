@@ -37,7 +37,7 @@ try {
       .join(" --file ")}`
   );
 } catch (e) {
-  console.error(e.stderr.toString());
+  console.error((e.stderr || e.message).toString());
   process.exitCode = e.status;
 }
 
