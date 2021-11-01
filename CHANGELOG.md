@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.0](https://github.com/andyjy/monorepo-template/compare/v0.2.0-canary.1...v0.2.0) (2021-11-01)
+
+**Note:** Version bump only for package monorepo-template
+
+## [0.2.0-canary.1](https://github.com/andyjy/monorepo-template/compare/v0.2.0-canary.0...v0.2.0-canary.1) (2021-11-01)
+
+**Note:** Version bump only for package monorepo-template
+
+## [0.2.0-canary.0](https://github.com/andyjy/monorepo-template/compare/v0.1.4...v0.2.0-canary.0) (2021-11-01)
+
+### Features
+
+- (deps): nextjs v12 ([95ed4d6](https://github.com/andyjy/monorepo-template/commit/95ed4d60bdf8acf73638474d8d9da6a65db924cb))
+
+### Bug Fixes
+
+- bump emojional-commitment patch version ([b2b6038](https://github.com/andyjy/monorepo-template/commit/b2b6038231fd8744c81f98d0dfddbaaa81e552fb))
+
 ### [0.1.4](https://github.com/andyjy/monorepo-template/compare/v0.1.4-canary.6...v0.1.4) (2021-10-29)
 
 ### Bug Fixes

@@ -1,0 +1,34 @@
+#!/usr/bin/env node
+
+/**
+ * bump version in package.template.json
+ */
+
+/* eslint @typescript-eslint/no-var-requires: "off" */
+
+const fs = require("fs");
+const path = require("path");
+
+try {
+  const packageJson = JSON.parse(
+    fs.readFileSync(
+      path.join(process.cwd(), "packages/_monorepo-utils/package.json")
+    )
+  );
+  const version = packageJson.version;
+
+  const packageTemplatePath = path.join(process.cwd(), "package.template.json");
+  let packageTemplate = fs.readFileSync(packageTemplatePath);
+  fs.writeFileSync(
+    packageTemplatePath,
+    packageTemplate
+      .toString()
+      .replace(
+        /\/monorepo-utils": "[^"]+"/,
+        '/monorepo-utils": "^' + version + '"'
+      )
+  );
+} catch (e) {
+  console.error(e.message);
+  return -1;
+}
