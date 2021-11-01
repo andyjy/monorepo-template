@@ -5,6 +5,7 @@
  **/
 const nextConfig = {
   reactStrictMode: true,
+  poweredByHeader: false,
   /*
   eslint: {
     // default directories processed by eslint - here ready to extend
