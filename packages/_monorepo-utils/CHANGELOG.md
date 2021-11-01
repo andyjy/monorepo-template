@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.0-canary.0](https://github.com/andyjy/monorepo-template/compare/v0.1.4...v0.2.0-canary.0) (2021-11-01)
+
+### Features
+
+- (deps): nextjs v12 ([95ed4d6](https://github.com/andyjy/monorepo-template/commit/95ed4d60bdf8acf73638474d8d9da6a65db924cb))
+
 ### [0.1.4](https://github.com/andyjy/monorepo-template/compare/v0.1.4-canary.6...v0.1.4) (2021-10-29)
 
 ### Bug Fixes
