@@ -1,9 +1,13 @@
 {
-  "packages": ["packages/*"],
+  "packages": [
+    "packages/*"
+  ],
   "version": "0.2.0",
   "command": {
     "version": {
-      "allowBranch": ["main"],
+      "allowBranch": [
+        "main"
+      ],
       "changelogPreset": "conventional-changelog-emojionalcommits",
       "conventionalCommits": true,
       "exact": true,

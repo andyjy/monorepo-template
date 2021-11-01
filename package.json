@@ -45,7 +45,10 @@
   "prettier": {
     "overrides": [
       {
-        "files": "package*.json",
+        "files": [
+          "package*.json",
+          "lerna.json"
+        ],
         "options": {
           "parser": "json-stringify"
         }
