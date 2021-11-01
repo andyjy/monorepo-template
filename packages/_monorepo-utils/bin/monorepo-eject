@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * script to eject monorepo template into new repo
+ * eject monorepo template into new repo
  */
 
 /* eslint @typescript-eslint/no-var-requires: "off" */
@@ -22,10 +22,10 @@ try {
     return -1;
   }
 
-  // basic test to avoid accidental use with destructive effect
-  /* eslint-disable security-node/detect-non-literal-require-calls */
-  const package_json = require(path.join(process.cwd(), "package.json"));
-  /* eslint-enable security-node/detect-non-literal-require-calls */
+  // basic package name/ver test to avoid accidental use with destructive effect
+  const package_json = JSON.parse(
+    fs.readFileSync(path.join(process.cwd(), "package.json"))
+  );
   if (
     package_json.name != "monorepo-template" ||
     package_json.version != "0.0.0"

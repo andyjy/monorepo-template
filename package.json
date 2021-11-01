@@ -17,7 +17,7 @@
     "release-canary": "lerna publish --conventional-prerelease --preid canary --allow-branch canary --dist-tag canary --create-release github",
     "release": "lerna publish --conventional-graduate --create-release github && npx merge-main-to-canary",
     "publish-releases": "lerna publish from-package",
-    "version": "npm install --package-lock-only && git add package-lock.json"
+    "version": "npm install --package-lock-only && npx bump-template-version && git add package-lock.json package.template.json"
   },
   "devDependencies": {
     "@andyjy/monorepo-utils": "file:packages/_monorepo-utils",

@@ -5,6 +5,7 @@
   "author": "Andy Young <npm@apexa.co.uk> https://github.com/andyjy",
   "license": "ISC",
   "bin": {
+    "bump-template-version": "bin/bump-template-version",
     "merge-main-to-canary": "bin/merge-main-to-canary",
     "monorepo-eject": "bin/monorepo-eject",
     "next-lint-staged": "bin/next-lint-staged",
