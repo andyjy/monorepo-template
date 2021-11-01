@@ -4,7 +4,7 @@
  * @type {import('next').NextConfig}
  **/
 const nextConfig = {
-  /* config options here */
+  reactStrictMode: true,
   /*
   eslint: {
     // default directories processed by eslint - here ready to extend
