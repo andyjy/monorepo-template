@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-// monorepo utility script to type-check staged changes to typescript files
+// type-check staged changes to typescript files
 // by running tsc within each individual package/workspace, scoped to only the
 // changed files from that package/workspace
 //
