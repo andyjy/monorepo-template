@@ -3,7 +3,7 @@
 # > docker build -t web -f Dockerfile.web .
 
 # Install dependencies only when needed
-FROM node:alpine AS build-dependencies
+FROM node:16-alpine AS build-dependencies
 # Check https://github.com/nodejs/docker-node/tree/b4117f9333da4138b03a546ec926ef50a31506c3#nodealpine
 # to understand why libc6-compat might be needed.
 RUN apk add --no-cache libc6-compat
@@ -18,7 +18,7 @@ RUN npm ci
 
 
 # Development image
-FROM node:alpine AS dev
+FROM node:16-alpine AS dev
 ENV NEXT_TELEMETRY_DISABLED 1
 RUN addgroup -g 1001 -S nodejs && adduser -S nextjs -u 1001
 WORKDIR /app
@@ -38,7 +38,7 @@ RUN npm run build && npm install --production --ignore-scripts --prefer-offline
 
 
 # Production image
-FROM node:alpine AS production
+FROM node:16-alpine AS production
 ENV NODE_ENV production
 ENV NEXT_TELEMETRY_DISABLED 1
 RUN addgroup -g 1001 -S nodejs && adduser -S nextjs -u 1001
