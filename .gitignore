@@ -2,9 +2,7 @@
 node_modules/
 
 # next.js
-/.next/
-/services/*/.next/
-/services/*/out/
+.next/
 
 # macOS junk
 .DS_Store
