@@ -16,6 +16,9 @@ lerna-debug.log*
 # temp config for pre-commit hook (see bin/tsc-lint-staged)
 .tsconfig-lint.json
 
+# typescript incremental build info cache
+*.tsbuildinfo
+
 # local env files
 .env.local
 .env.development.local
