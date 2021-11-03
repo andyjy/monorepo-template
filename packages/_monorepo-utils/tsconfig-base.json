@@ -18,7 +18,8 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "declaration": true
+    "declaration": true,
+    "incremental": true
   },
   // 3 levels up to get to repo root from node_modules/@andyjy/monorepo-utils
   "exclude": [
