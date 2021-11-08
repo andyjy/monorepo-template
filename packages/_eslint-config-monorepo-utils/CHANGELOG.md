@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.0](https://github.com/andyjy/monorepo-template/compare/v0.2.0...v0.3.0) (2021-11-08)
+
+**Note:** Version bump only for package @andyjy/eslint-config-monorepo-utils
+
 ### [0.1.3](https://github.com/andyjy/monorepo-template/compare/v0.1.2...v0.1.3) (2021-10-28)
 
 **Note:** Version bump only for package @andyjy/eslint-config-monorepo-utils
