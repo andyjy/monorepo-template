@@ -1,4 +1,6 @@
 # We're using Prettier for code formatting
 
-# dependencies
+.next/
+.tmp/
+dist/
 node_modules/
