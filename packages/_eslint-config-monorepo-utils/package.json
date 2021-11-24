@@ -1,6 +1,6 @@
 {
   "name": "@andyjy/eslint-config-monorepo-utils",
-  "version": "0.1.3",
+  "version": "0.3.0",
   "description": "Base ESLint config for @andyjy/monorepo-utils",
   "author": "Andy Young <npm@apexa.co.uk> https://github.com/andyjy",
   "license": "ISC",

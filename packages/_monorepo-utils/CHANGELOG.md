@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.0](https://github.com/andyjy/monorepo-template/compare/v0.2.0...v0.3.0) (2021-11-08)
+
+### Features
+
+- typescript incremental builds ([2814914](https://github.com/andyjy/monorepo-template/commit/28149142a25073ee60b3725ec9beefa98c3ac9a9))
+
 ## [0.2.0](https://github.com/andyjy/monorepo-template/compare/v0.2.0-canary.1...v0.2.0) (2021-11-01)
 
 **Note:** Version bump only for package @andyjy/monorepo-utils
